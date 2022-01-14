@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\SignInController;
+use App\Http\Controllers\Auth\SignOutController;
 use App\Http\Controllers\Auth\SignUpController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,3 +28,5 @@ Route::post("/sign-up", [SignUpController::class, 'store']);
 
 Route::get("/sign-in", [SignInController::class, 'index'])->name('sign-in');
 Route::post("/sign-in", [SignInController::class, 'store']);
+
+Route::delete("/sign-out", [SignOutController::class, 'store'])->name('sign-out');
