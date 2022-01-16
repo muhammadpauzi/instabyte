@@ -29,7 +29,9 @@ class SignUpController extends Controller
             "name"  => $request->post('name'),
             "username"  => $request->post('username'),
             "email"  => $request->post('email'),
-            "password"  => Hash::make($request->post('password'))
+            "password"  => Hash::make($request->post('password')),
+            'bio'   => "",
+            "photo" => "default.png"
         ]);
 
         return redirect()->route('sign-in')->with('message', ['type' => 'success', 'text' => 'Your account successfully registered!']);

@@ -12,8 +12,8 @@
         <x-input name="name" label="Name" type="text" old="{{ old('name') }}" />
         <x-input name="username" label="Username" type="text" old="{{ old('username') }}" />
         <x-input name="email" label="Email" type="email" old="{{ old('email') }}" />
-        <x-input name="password" label="Password" type="password" old="" />
-        <x-input name=" password_confirmation" label="Password Confirmation" type="password" old="" />
+        <x-input name="password" label="Password" type="password" />
+        <x-input name=" password_confirmation" label="Password Confirmation" type="password" />
 
         <button class=" py-3 px-4 bg-indigo-500 text-sm text-white font-bold hover:bg-indigo-600 shadow rounded transition uppercase">Sign up</button>
 

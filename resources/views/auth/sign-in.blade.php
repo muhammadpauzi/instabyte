@@ -10,7 +10,7 @@
         @csrf
 
         <x-input name="username" label="Username" type="text" old="{{ old('username') }}" />
-        <x-input name="password" label="Password" type="password" old="" />
+        <x-input name="password" label="Password" type="password" />
 
         <button class="py-3 px-4 bg-indigo-500 text-sm text-white font-bold hover:bg-indigo-600 shadow rounded transition uppercase">Sign in</button>
 
