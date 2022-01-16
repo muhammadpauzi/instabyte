@@ -21,7 +21,7 @@ Route::get('/', function () {
     return view('home', [
         "title" => "Home | InstaByte"
     ]);
-})->name('home');
+})->name('home')->middleware(['auth']);
 
 
 Route::get("/sign-up", [SignUpController::class, 'index'])->name('sign-up');
