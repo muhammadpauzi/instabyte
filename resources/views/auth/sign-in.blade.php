@@ -9,7 +9,7 @@
     <form action="{{ route('sign-in') }}" method="post" novalidate>
         @csrf
 
-        <x-input name="username" label="Username" type="text" old="{{ old('username') }}" />
+        <x-input name="username_or_email" label="Username or Email" type="text" old="{{ old('username_or_email') }}" />
         <x-input name="password" label="Password" type="password" />
 
         <button class="py-3 px-4 bg-indigo-500 text-sm text-white font-bold hover:bg-indigo-600 shadow rounded transition uppercase">Sign in</button>
