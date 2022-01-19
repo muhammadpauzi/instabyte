@@ -7,7 +7,7 @@
         <p class="text-sm text-gray-400">Create a post by enter all fields and choose an image or video.</p>
         <hr class="w-full block border-top border-gray-200 rounded mb-5 mt-10">
     </div>
-    <form action="{{ route('create_post') }}" method="post" novalidate enctype="multipart/form-data">
+    <form action="{{ route('create-post') }}" method="post" novalidate enctype="multipart/form-data">
         @csrf
 
         <div class="max-w-4xl mx-auto my-5">
