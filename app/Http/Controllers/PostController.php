@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Str;
 use App\Models\Post;
 use App\Models\PostResource;
 use Illuminate\Http\Request;
@@ -31,20 +32,20 @@ class PostController extends Controller
             "files.*.mimes" => "The files must be an image."
         ]);
 
-        $post = Post::create([
-            "user_id"   => auth()->user()->id,
+        $post = $request->user()->posts()->create([
             "body"   => $request->body
         ]);
 
         $files = [];
         foreach ($request->file('files') as $file) {
             $files[] = [
-                "user_id"   => auth()->user()->id,
-                "post_id" => $post->id,
-                "path_resource" => $file->store('files')
+                "user_id"   => $post->user_id,
+                "post_id"   => $post->id,
+                "path_resource" => Str::remove('public/', $file->store('public/files')),
+                "created_at" => \Carbon\Carbon::now()->toDateTimeString(),
+                "updated_at" => \Carbon\Carbon::now()->toDateTimeString()
             ];
         }
-
         PostResource::insert($files);
 
         return redirect()->route('home')->with('message', ['type' => 'success', 'text' => 'Post has successfully created!']);

@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('content')
-<div class="max-w-lg mx-auto p-5">
+<div class="max-w-2xl mx-auto p-5">
 
     <div class="flex items-center mb-5">
         <div>
@@ -33,11 +33,28 @@
         </p>
     </div>
 
-    <div>
+    <div class="mb-10">
         <a href="{{ route('edit-profile') }}" class="py-3 px-4 bg-indigo-500 text-sm text-white font-bold hover:bg-indigo-600 shadow rounded transition uppercase">Edit Profile</a>
         <a href="{{ route('create_post') }}" class="py-3 px-4 bg-indigo-500 text-sm text-white font-bold hover:bg-indigo-600 shadow rounded transition uppercase">Create Post</a>
     </div>
 
+    <hr class="w-full block border-top border-gray-200 rounded mb-10">
+
+    @if(auth()->user()->posts->count())
+    <div class="grid grid-cols-2 gap-2">
+        @foreach(auth()->user()->posts as $post)
+        <a href="">
+            <div>
+                <img src="{{ asset('storage/' . $post->resources[0]->path_resource) }}" alt="" class="object-cover block rounded w-full h-56">
+            </div>
+        </a>
+        @endforeach
+    </div>
+    @else
+    <div>
+        <p class="text-red-500 text-center font-bold">No Posts</p>
+    </div>
+    @endif
 
 </div>
 @endsection

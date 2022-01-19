@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -14,8 +15,10 @@ class ProfileController extends Controller
 
     public function index()
     {
+        $posts = Post::where('user_id', '=', auth()->user()->id)->get();
         return view("profile.index", [
-            "title" => "Your Profile - InstaByte"
+            "title" => "Your Profile - InstaByte",
+            "posts" => $posts
         ]);
     }
 

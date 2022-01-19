@@ -52,6 +52,10 @@
         @yield('content')
     </div>
 
+    <footer class="w-full mt-32 border-top-2 border-top-gray-200 py-10 px-5 text-center block">
+        <p>Copyright <?= date("Y"); ?>, All Right Reserved.</p>
+    </footer>
+
     <script src="{{ asset('js/main.js') }}"></script>
 </body>
 
