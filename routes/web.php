@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\SignInController;
 use App\Http\Controllers\Auth\SignOutController;
 use App\Http\Controllers\Auth\SignUpController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,3 +36,6 @@ Route::delete("/sign-out", [SignOutController::class, 'store'])->name('sign-out'
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('edit-profile');
 Route::put('/profile/edit', [ProfileController::class, 'update']);
+
+Route::get('/posts/create', [PostController::class, 'create'])->name('create_post');
+Route::post('/posts/create', [PostController::class, 'store']);

@@ -33,7 +33,10 @@
         </p>
     </div>
 
-    <a href="{{ route('edit-profile') }}" class="py-3 px-4 bg-indigo-500 text-sm text-white font-bold hover:bg-indigo-600 shadow rounded transition uppercase">Edit Profile</a>
+    <div>
+        <a href="{{ route('edit-profile') }}" class="py-3 px-4 bg-indigo-500 text-sm text-white font-bold hover:bg-indigo-600 shadow rounded transition uppercase">Edit Profile</a>
+        <a href="{{ route('create_post') }}" class="py-3 px-4 bg-indigo-500 text-sm text-white font-bold hover:bg-indigo-600 shadow rounded transition uppercase">Create Post</a>
+    </div>
 
 
 </div>
