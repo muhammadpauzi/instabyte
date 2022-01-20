@@ -41,4 +41,5 @@ Route::put('/profile/edit', [ProfileController::class, 'update']);
 Route::get('/posts/create', [PostController::class, 'create'])->name('create-post');
 Route::post('/posts/create', [PostController::class, 'store']);
 
+Route::get('/{user:username}', [UserController::class, 'index']);
 Route::get('/{user:username}/posts/{post:id}', [UserController::class, 'show']);

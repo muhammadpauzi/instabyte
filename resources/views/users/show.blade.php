@@ -9,9 +9,9 @@
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
                 <!-- Slides -->
-                @foreach(auth()->user()->posts as $post)
+                @foreach($post->resources as $resource)
                 <div class="swiper-slide">
-                    <img src="{{ asset('storage/' . $post->resources[0]->path_resource) }}" alt="" class="object-cover block rounded w-full h-96">
+                    <img src="{{ asset('storage/' . $resource->path_resource) }}" alt="" class="object-cover block rounded w-full h-96">
                 </div>
                 @endforeach
             </div>
