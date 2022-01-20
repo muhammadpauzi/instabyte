@@ -15,10 +15,10 @@
                 </div>
                 @endforeach
             </div>
-
+            <div class="swiper-pagination"></div>
             <!-- If we need navigation buttons -->
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
+            <!-- <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div> -->
         </div>
     </div>
 
@@ -56,10 +56,9 @@
         const swiper = new Swiper('.swiper', {
             loop: true,
 
-            // Navigation arrows
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
+            pagination: {
+                el: ".swiper-pagination",
+                dynamicBullets: true,
             },
         });
     </script>

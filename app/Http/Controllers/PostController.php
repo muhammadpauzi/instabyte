@@ -26,7 +26,7 @@ class PostController extends Controller
         $this->validate($request, [
             "body" => "required|max:500",
             "files" => "required",
-            "files.*" => "image|mimes:jpeg,jpg,png,bmp,gif,svg"
+            "files.*" => "image|mimes:jpeg,jpg,png,bmp,gif,svg|max:2042"
         ], [
             "files.*.image" => "The files must be an image.",
             "files.*.mimes" => "The files must be an image."

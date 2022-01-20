@@ -42,7 +42,7 @@ class ProfileController extends Controller
             $username_validation = '|unique:users,username';
         }
         if ($request->file('photo')) {
-            $photo_validation = 'image';
+            $photo_validation = 'image|mimes:jpeg,jpg,png,bmp,gif,svg|max:512';
         }
 
         $this->validate($request, [
