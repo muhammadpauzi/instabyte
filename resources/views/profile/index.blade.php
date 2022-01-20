@@ -5,15 +5,15 @@
 
     <div class="flex items-center mb-5">
         <div>
-            <img src="{{ asset('img/default.png') }}" alt="" class="border-2 border-gray-200 shadow-lg w-24 h-24 block rounded-full">
+            <img src="{{ asset('storage/' . auth()->user()->photo) }}" alt="" class="border-2 border-gray-200 shadow-lg w-24 h-24 block rounded-full">
         </div>
         <div class="pl-5">
             <h1 class="font-bold block mb-1 text-xl">{{ auth()->user()->username }}</h1>
             <h2 class="font-semibold block mb-2 text-sm text-gray-700">{{ auth()->user()->name }}</h2>
             <div class="grid grid-cols-3 gap-2">
                 <a href="" class="text-center hover:bg-gray-100 transition p-2 px-4 rounded">
-                    <span class="block font-bold">0</span>
-                    <span class="block font-medium text-gray-700">Posts</span>
+                    <span class="block font-bold">{{ auth()->user()->posts()->count() }}</span>
+                    <span class="block font-medium text-gray-700">{{ Str::plural('Post', auth()->user()->posts()->count()) }}</span>
                 </a>
                 <a href="" class="text-center hover:bg-gray-100 transition p-2 px-4 rounded">
                     <span class="block font-bold">0</span>

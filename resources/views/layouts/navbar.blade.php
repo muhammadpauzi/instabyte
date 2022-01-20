@@ -18,7 +18,7 @@
                         <div>
                             <button type="button" class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-indigo-500 transition" id="user-menu-button" data-target="user-menu-group-item" aria-expanded="false" aria-haspopup="true">
                                 <span class="sr-only">Open user menu</span>
-                                <img class="h-10 w-10 rounded-full" src="{{ asset('img/' . auth()->user()->photo) }}" alt="">
+                                <img class="h-10 w-10 rounded-full" src="{{ asset('storage/' . auth()->user()->photo) }}" alt="">
                             </button>
                         </div>
 
