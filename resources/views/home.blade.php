@@ -5,6 +5,20 @@
     @foreach($posts as $post)
     <div>
         <div class="my-10">
+            <div class="mb-5">
+                <hr class="w-full block border-top border-gray-200 rounded mb-5">
+                <div class="flex items-center">
+                    <div class="mr-5">
+                        <img class="h-12 w-12 rounded-full" src="{{ asset('storage/' . $post->user->photo) }}" alt="">
+                    </div>
+                    <div>
+                        <span class="block"><a href="/{{ $post->user->username }}" class="text-indigo-500 font-bold">{{ $post->user->username }}</a></span>
+                        <span class="block text-gray-500 text-sm">
+                            {{ $post->created_at->diffForHumans() }}
+                        </span>
+                    </div>
+                </div>
+            </div>
             <div class="swiper w-full">
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper">
@@ -22,25 +36,6 @@
         </div>
 
         <div class="mb-5 w-full">
-            <hr class="w-full block border-top border-gray-200 rounded">
-
-            <div class="grid grid-cols-3 gap-2 py-5">
-                <small class="font-bold">
-                    <span class="block text-gray-500">
-                        Created at
-                    </span> {{ $post->created_at->diffForHumans() }}
-                </small>
-                <small class="font-bold">
-                    <span class="block text-gray-500">
-                        Updated at
-                    </span> {{ $post->updated_at->diffForHumans() }}
-                </small>
-                <small class="font-bold">
-                    <span class="block text-gray-500">
-                        Posted by
-                    </span> <a href="/{{ $post->user->username }}" class="text-indigo-500">{{ $post->user->username }}</a>
-                </small>
-            </div>
 
             <hr class="w-full block border-top border-gray-200 rounded mb-5">
 
