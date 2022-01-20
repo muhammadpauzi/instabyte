@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\SignUpController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,10 +21,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    $posts = Post::query()->latest()->get();
     return view('home', [
-        "title" => "Home | InstaByte"
+        "title" => "Home | InstaByte",
+        "posts" => $posts
     ]);
-})->name('home')->middleware(['auth']);
+})->name('home');
 
 
 Route::get("/sign-up", [SignUpController::class, 'index'])->name('sign-up');
