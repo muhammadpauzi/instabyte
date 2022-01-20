@@ -39,7 +39,7 @@
 
             <hr class="w-full block border-top border-gray-200 rounded mb-5">
 
-            <p class="text-gray-500">
+            <p class="text-gray-500 leading-relaxed text-md">
                 {{ $post->body }}
             </p>
         </div>
