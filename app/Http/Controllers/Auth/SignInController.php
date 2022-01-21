@@ -36,14 +36,16 @@ class SignInController extends Controller
             ->orWhere("email", "=", $request->username_or_email)
             ->first();
 
-        $credentials = [
-            'username' => $user['username'],
-            'password' => $request->password
-        ];
+        if ($user) {
+            $credentials = [
+                'username' => $user['username'],
+                'password' => $request->password
+            ];
 
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-            return redirect()->route('home')->with('message', ['type' => 'success', 'text' => 'You successfully logged in!']);
+            if (Auth::attempt($credentials)) {
+                $request->session()->regenerate();
+                return redirect()->route('home')->with('message', ['type' => 'success', 'text' => 'You successfully logged in!']);
+            }
         }
 
         return back()->withInput()->with([

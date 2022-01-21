@@ -1,11 +1,11 @@
 @extends('layouts.base')
 
 @section('content')
-<div class="max-w-xl mx-auto p-5">
+<div class="max-w-xl mx-auto p-5 min-h-screen">
     @auth
     <a href="{{ route('create-post') }}" class="py-3 px-4 bg-indigo-500 text-sm text-white font-bold hover:bg-indigo-600 shadow rounded transition uppercase">Create Post</a>
     @endauth
-
+    @if($posts->count())
     @foreach($posts as $post)
     <div>
         <div class="my-10">
@@ -73,6 +73,11 @@
         </div>
     </div>
     @endforeach
+    @else
+    <div class="py-20 text-center">
+        <p class="font-bold text-lg text-red-500">No Posts</p>
+    </div>
+    @endif
 
     <script src="{{ asset('js/swiper-bundle.min.js') }}"></script>
     <script>
