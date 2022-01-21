@@ -33,12 +33,14 @@
         </p>
     </div>
 
+    @auth
     @if( $user->id === auth()->user()->id )
     <div class="mb-10">
         <a href="{{ route('edit-profile') }}" class="py-3 px-4 bg-indigo-500 text-sm text-white font-bold hover:bg-indigo-600 shadow rounded transition uppercase">Edit Profile</a>
         <a href="{{ route('create-post') }}" class="py-3 px-4 bg-indigo-500 text-sm text-white font-bold hover:bg-indigo-600 shadow rounded transition uppercase">Create Post</a>
     </div>
     @endif
+    @endauth
 
     <hr class="w-full block border-top border-gray-200 rounded mb-10">
 
