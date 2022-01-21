@@ -1,3 +1,3 @@
 # InstaByte
 
-📸 **InstaByte** is a **Platform** for share an image and video to public.
+📸 **InstaByte** is a **Platform** for share an images to public.
