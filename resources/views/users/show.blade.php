@@ -25,22 +25,33 @@
     <div class="mb-10 w-full">
         <hr class="w-full block border-top border-gray-200 rounded">
 
-        <div class="grid grid-cols-3 gap-2 py-10">
-            <small class="font-bold">
-                <span class="block text-gray-500">
-                    Created at
-                </span> {{ $post->created_at->diffForHumans() }}
-            </small>
-            <small class="font-bold">
-                <span class="block text-gray-500">
-                    Updated at
-                </span> {{ $post->updated_at->diffForHumans() }}
-            </small>
-            <small class="font-bold">
-                <span class="block text-gray-500">
-                    Posted by
-                </span> <a href="/{{ $post->user->username }}" class="text-indigo-500">{{ $post->user->username }}</a>
-            </small>
+        <div class="flex items-center justify-between">
+            <div class="grid grid-cols-3 gap-2 py-10">
+                <small class="font-bold">
+                    <span class="block text-gray-500">
+                        Created at
+                    </span> {{ $post->created_at->diffForHumans() }}
+                </small>
+                <small class="font-bold">
+                    <span class="block text-gray-500">
+                        Updated at
+                    </span> {{ $post->updated_at->diffForHumans() }}
+                </small>
+                <small class="font-bold">
+                    <span class="block text-gray-500">
+                        Posted by
+                    </span> <a href="/{{ $post->user->username }}" class="text-indigo-500">{{ $post->user->username }}</a>
+                </small>
+            </div>
+            <div>
+                @can('delete', $post)
+                <form action="{{ route('delete-post', $post) }}" method="post" onsubmit="return confirm('Are you sure to delete this post?')">
+                    @csrf
+                    @method("DELETE")
+                    <button class="block px-4 py-2 text-sm text-gray-700 hover:text-red-500 transition">Delete this post</button>
+                </form>
+                @endcan
+            </div>
         </div>
 
         <hr class="w-full block border-top border-gray-200 rounded mb-5">

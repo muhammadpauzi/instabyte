@@ -28,7 +28,6 @@ Route::get('/', function () {
     ]);
 })->name('home');
 
-
 Route::get("/sign-up", [SignUpController::class, 'index'])->name('sign-up');
 Route::post("/sign-up", [SignUpController::class, 'store']);
 
@@ -43,6 +42,7 @@ Route::put('/profile/edit', [ProfileController::class, 'update']);
 
 Route::get('/posts/create', [PostController::class, 'create'])->name('create-post');
 Route::post('/posts/create', [PostController::class, 'store']);
+Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('delete-post');
 
 Route::get('/{user:username}', [UserController::class, 'index']);
 Route::get('/{user:username}/posts/{post:id}', [UserController::class, 'show']);

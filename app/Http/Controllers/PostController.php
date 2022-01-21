@@ -50,4 +50,11 @@ class PostController extends Controller
 
         return redirect()->route('home')->with('message', ['type' => 'success', 'text' => 'Post has successfully created!']);
     }
+
+    public function destroy(Post $post)
+    {
+        $this->authorize('delete', $post);
+        Post::destroy($post->id);
+        return redirect()->route('home')->with('message', ["type" => "success", "text" => "Post has successfully deleted!"]);
+    }
 }

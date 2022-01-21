@@ -5,6 +5,11 @@ userMenuButton.addEventListener('click', function() {
     document.querySelector(`#${this.dataset.target}`).classList.toggle('scale-0');
 });
 
+function showMenuElement(thisElement){
+    document.querySelector(`#${thisElement.dataset.target}`).classList.toggle('opacity-0');
+    document.querySelector(`#${thisElement.dataset.target}`).classList.toggle('scale-0');
+}
+
 const getImageComponent = ({src, alt} = {src:"", alt: ""}) => {
     return `<div class="">
         <img src="${src}" alt="${alt}" class="object-cover block h-48 w-96">
