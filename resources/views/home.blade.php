@@ -2,6 +2,10 @@
 
 @section('content')
 <div class="max-w-xl mx-auto p-5">
+    @auth
+    <a href="{{ route('create-post') }}" class="py-3 px-4 bg-indigo-500 text-sm text-white font-bold hover:bg-indigo-600 shadow rounded transition uppercase">Create Post</a>
+    @endauth
+
     @foreach($posts as $post)
     <div>
         <div class="my-10">
